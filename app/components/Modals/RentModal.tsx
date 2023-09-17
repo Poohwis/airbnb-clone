@@ -1,7 +1,7 @@
 "use client";
 import useRentModal from "@/app/hooks/useRentModal";
 import Modal from "./Modal";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../Inputs/CategoryInput";
@@ -151,12 +151,14 @@ const RentModal = () => {
         />
         <CountrySelect
           value={location}
-          onChange={(value) => setCustomValue("location", value)}
+          onChange={(value) => 
+            setCustomValue("location", value)}
         />
         <Map center={location?.latlng} />
       </div>
     );
   }
+  
 
   if (step === STEPS.INFO) {
     bodyContent = (
